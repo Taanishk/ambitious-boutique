@@ -2,210 +2,98 @@
     --ambitious-red: #B22234;
     --apple-white: #f5f5f7;
     --text-black: #1d1d1f;
+    --whatsapp-green: #25D366;
     --transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Poppins', sans-serif; background-color: white; color: var(--text-black); overflow-x: hidden; }
 
-/* Navigation */
+/* Navigation Base */
 .glass-nav {
     position: fixed; top: 0; width: 100%; height: 60px;
     background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px);
     z-index: 1000; display: flex; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 .nav-content { width: 90%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-.logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 1.5rem; color: var(--ambitious-red); letter-spacing: 2px; }
+.logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 1.5rem; color: var(--ambitious-red); letter-spacing: 2px; text-decoration: none; }
+
+/* Navigation Links - Desktop */
 .nav-links { display: flex; list-style: none; align-items: center; }
-.nav-links a { text-decoration: none; color: var(--text-black); font-size: 0.85rem; margin-left: 30px; transition: 0.3s; }
-/* Update this in your style.css */
-.btn-cta {
-    background-color: #25D366 !important; /* WhatsApp Official Green */
+.nav-links a { text-decoration: none; color: var(--text-black); font-size: 0.85rem; margin-left: 30px; transition: 0.3s; font-weight: 500; }
+
+/* GLOBAL WHATSAPP BUTTON FIX */
+.btn-cta, a[href*="wa.me"] {
+    background-color: var(--whatsapp-green) !important;
     color: white !important;
-    padding: 8px 22px;
-    border-radius: 20px;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: none;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); /* Subtle green glow */
-}
-
-.btn-cta:hover {
-    transform: translateY(-2px); /* Lifts up slightly when hovered */
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
-    background-color: #20ba5a !important; /* Slightly darker green on hover */
-}
-
-/* Hero Section with Parallax */
-.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.hero-image { position: absolute; width: 100%; height: 120%; top: 0; background-size: cover; background-position: center; z-index: -2; }
-.hero-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: -1; }
-.hero-content { color: white; text-align: center; }
-.hero h1 { font-family: 'Playfair Display'; font-size: 5rem; line-height: 1; margin: 20px 0; }
-.highlight { color: var(--ambitious-red); text-shadow: 2px 2px 10px rgba(0,0,0,0.2); }
-.location-tag { letter-spacing: 4px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; }
-
-/* Showroom Grid */
-.section { padding: 120px 5%; }
-.container { max-width: 1200px; margin: 0 auto; }
-h2 { font-family: 'Playfair Display'; font-size: 3rem; text-align: center; margin-bottom: 60px; }
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.card-img { height: 600px; background-size: cover; background-position: center; border-radius: 4px; margin-bottom: 20px; transition: transform 0.6s; }
-.card:hover .card-img { transform: scale(1.02); }
-.card h3 { font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 10px; }
-
-/* Visit Us Card */
-.visit-card { background: var(--apple-white); padding: 80px 40px; border-radius: 30px; text-align: center; }
-.address { font-size: 1.4rem; margin: 20px 0; font-weight: 300; }
-.landmark { color: var(--ambitious-red); font-weight: 600; margin-bottom: 40px; }
-.btn { display: inline-block; padding: 15px 40px; background: var(--ambitious-red); color: white; text-decoration: none; border-radius: 30px; margin: 10px; font-weight: 600; }
-.btn.secondary { background: white; color: var(--text-black); border: 1px solid #ddd; }
-
-/* Reveal Animation */
-.reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
-.reveal.active { opacity: 1; transform: translateY(0); }
-
-footer { padding: 60px; text-align: center; background: #fff; border-top: 1px solid #eee; font-size: 0.8rem; color: #888; }
-
-@media (max-width: 768px) {
-    .grid { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 3rem; }
-}
-/* MOBILE FIXES */
-@media (max-width: 768px) {
-    /* 1. Fix the overlapping Navigation */
-    .nav-links {
-        display: none; /* This hides the long links on phone so the logo looks clean */
-    }
-
-    /* 2. Resize the Hero Text so it fits the screen */
-    .hero h1 {
-        font-size: 2.8rem !important; /* Makes 'Where Tradition Meets Ambition' smaller */
-        padding: 0 10px;
-    }
-
-    .hero p {
-        font-size: 1rem;
-        padding: 0 20px;
-    }
-
-    /* 3. Adjust the Hero Image position */
-    .hero-image {
-        background-position: center top; /* Ensures your 'A' logo/sign is visible */
-        height: 100vh !important; /* Prevents the image from jumping */
-    }
-
-    /* 4. Fix the Shop Cards to stack vertically */
-    .grid {
-        grid-template-columns: 1fr !important; /* One suit per row on phone */
-        gap: 20px;
-    }
-
-    .card-img {
-        height: 400px !important; /* Makes images a better size for scrolling */
-    }
-}
-/* Mobile Bottom Navigation Bar */
-.mobile-bottom-nav {
-    display: none; /* Hidden on Desktop */
-}
-
-@media (max-width: 768px) {
-    .mobile-bottom-nav {
-        display: flex;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        height: 60px;
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(20px);
-        border-top: 1px solid rgba(0,0,0,0.1);
-        z-index: 1001;
-        justify-content: space-around;
-        align-items: center;
-    }
-    
-    .mobile-bottom-nav a {
-        text-decoration: none;
-        color: var(--text-black);
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-transform: uppercase;
-    }
-
-    /* Hide the top links on mobile to stop the glitch */
-    .nav-links {
-        display: none;
-    }
-    
-    /* Ensure the logo stays left and button stays right */
-    .nav-content {
-        justify-content: space-between;
-        width: 95%;
-    }
-}
-/* --- MOBILE FIX: REVEAL NAVIGATION LINKS --- */
-@media (max-width: 768px) {
-    /* 1. Make space for the links in the header */
-    .glass-nav {
-        height: auto !important;
-        padding: 10px 0;
-    }
-
-    /* 2. Stack Logo and Links vertically */
-    .nav-content {
-        flex-direction: column !important;
-        gap: 8px;
-    }
-
-    /* 3. Force the hidden links to be visible and neat */
-    .nav-links {
-        display: flex !important; /* This fixes the 'invisible' issue */
-        justify-content: center;
-        width: 100%;
-        gap: 12px;
-        padding-bottom: 5px;
-        list-style: none;
-    }
-
-    .nav-links a {
-        margin: 0 !important;
-        font-size: 0.7rem !important;
-        text-transform: uppercase;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        color: var(--text-black);
-    }
-
-    /* 4. Keep the Logo clear */
-    .logo {
-        font-size: 1.2rem !important;
-    }
-
-    /* 5. Adjust Hero Section so it doesn't get cut off by the bigger header */
-    .hero {
-        padding-top: 120px !important;
-    }
-}
-/* --- FINAL WHATSAPP COLOR FIX --- */
-.btn-cta, 
-.nav-links a.btn-cta, 
-a[href*="wa.me"] {
-    background-color: #25D366 !important; /* Force WhatsApp Green */
-    color: #ffffff !important;           /* Force White Text */
-    border: none !important;
-    padding: 10px 20px !important;
+    padding: 10px 22px !important;
     border-radius: 25px !important;
     font-weight: 700 !important;
     text-decoration: none !important;
     display: inline-block !important;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4) !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3) !important;
+    transition: transform 0.3s ease !important;
 }
+.btn-cta:hover { transform: translateY(-2px); background-color: #128C7E !important; }
 
-/* Hover effect to make it feel premium */
-.btn-cta:hover {
-    background-color: #128C7E !important; /* Darker WhatsApp Teal */
-    transform: translateY(-2px);
+/* Hero Section */
+.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.hero-image { position: absolute; width: 100%; height: 120%; top: 0; background-size: cover; background-position: center; z-index: -2; }
+.hero-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: -1; }
+.hero-content { color: white; text-align: center; padding: 0 20px; }
+.hero h1 { font-family: 'Playfair Display'; font-size: 5rem; line-height: 1.1; margin: 20px 0; }
+.highlight { color: var(--ambitious-red); }
+.location-tag { letter-spacing: 4px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; }
+
+/* Showroom Grid */
+.section { padding: 100px 5%; }
+.container { max-width: 1200px; margin: 0 auto; }
+h2 { font-family: 'Playfair Display'; font-size: 3rem; text-align: center; margin-bottom: 60px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.card-img { height: 600px; background-size: cover; background-position: center; border-radius: 4px; margin-bottom: 20px; transition: 0.6s; }
+.card:hover .card-img { transform: scale(1.02); }
+.card h3 { font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 10px; color: var(--ambitious-red); }
+
+/* Visit Us Card */
+.visit-card { background: var(--apple-white); padding: 60px 20px; border-radius: 30px; text-align: center; }
+.address { font-size: 1.2rem; margin: 20px 0; }
+.landmark { color: var(--ambitious-red); font-weight: 600; margin-bottom: 30px; }
+.btn { display: inline-block; padding: 15px 30px; background: var(--ambitious-red); color: white; text-decoration: none; border-radius: 30px; margin: 10px; font-weight: 600; }
+.btn.secondary { background: white; color: var(--text-black); border: 1px solid #ddd; }
+
+/* Reveal Animation */
+.reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+footer { padding: 60px; text-align: center; color: #888; font-size: 0.8rem; }
+
+/* --- MOBILE SPECIFIC FIXES --- */
+@media (max-width: 768px) {
+    .glass-nav { height: auto; padding: 15px 0; }
+    .nav-content { flex-direction: column; gap: 12px; }
+    
+    .logo { font-size: 1.3rem; }
+    
+    /* Make Links Visible and Neat on Mobile */
+    .nav-links { 
+        display: flex !important; 
+        padding: 0; 
+        margin: 0; 
+        gap: 15px; 
+    }
+    .nav-links a { 
+        margin: 0; 
+        font-size: 0.75rem; 
+        font-weight: 600; 
+        letter-spacing: 1px;
+    }
+
+    .hero h1 { font-size: 2.8rem; }
+    .hero { padding-top: 100px; }
+    .grid { grid-template-columns: 1fr; }
+    .card-img { height: 400px; }
+    
+    /* Hide the bottom nav if it's causing issues, or keep simple */
+    .mobile-bottom-nav { display: none; } 
 }
