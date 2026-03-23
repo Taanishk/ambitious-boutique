@@ -146,3 +146,46 @@ footer { padding: 60px; text-align: center; background: #fff; border-top: 1px so
         width: 95%;
     }
 }
+/* --- MOBILE FIX: REVEAL NAVIGATION LINKS --- */
+@media (max-width: 768px) {
+    /* 1. Make space for the links in the header */
+    .glass-nav {
+        height: auto !important;
+        padding: 10px 0;
+    }
+
+    /* 2. Stack Logo and Links vertically */
+    .nav-content {
+        flex-direction: column !important;
+        gap: 8px;
+    }
+
+    /* 3. Force the hidden links to be visible and neat */
+    .nav-links {
+        display: flex !important; /* This fixes the 'invisible' issue */
+        justify-content: center;
+        width: 100%;
+        gap: 12px;
+        padding-bottom: 5px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        margin: 0 !important;
+        font-size: 0.7rem !important;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        color: var(--text-black);
+    }
+
+    /* 4. Keep the Logo clear */
+    .logo {
+        font-size: 1.2rem !important;
+    }
+
+    /* 5. Adjust Hero Section so it doesn't get cut off by the bigger header */
+    .hero {
+        padding-top: 120px !important;
+    }
+}
