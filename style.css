@@ -189,3 +189,23 @@ footer { padding: 60px; text-align: center; background: #fff; border-top: 1px so
         padding-top: 120px !important;
     }
 }
+/* --- FINAL WHATSAPP COLOR FIX --- */
+.btn-cta, 
+.nav-links a.btn-cta, 
+a[href*="wa.me"] {
+    background-color: #25D366 !important; /* Force WhatsApp Green */
+    color: #ffffff !important;           /* Force White Text */
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4) !important;
+}
+
+/* Hover effect to make it feel premium */
+.btn-cta:hover {
+    background-color: #128C7E !important; /* Darker WhatsApp Teal */
+    transform: translateY(-2px);
+}
