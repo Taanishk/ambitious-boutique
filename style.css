@@ -55,3 +55,37 @@ footer { padding: 60px; text-align: center; background: #fff; border-top: 1px so
     .grid { grid-template-columns: 1fr; }
     .hero h1 { font-size: 3rem; }
 }
+/* MOBILE FIXES */
+@media (max-width: 768px) {
+    /* 1. Fix the overlapping Navigation */
+    .nav-links {
+        display: none; /* This hides the long links on phone so the logo looks clean */
+    }
+
+    /* 2. Resize the Hero Text so it fits the screen */
+    .hero h1 {
+        font-size: 2.8rem !important; /* Makes 'Where Tradition Meets Ambition' smaller */
+        padding: 0 10px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+
+    /* 3. Adjust the Hero Image position */
+    .hero-image {
+        background-position: center top; /* Ensures your 'A' logo/sign is visible */
+        height: 100vh !important; /* Prevents the image from jumping */
+    }
+
+    /* 4. Fix the Shop Cards to stack vertically */
+    .grid {
+        grid-template-columns: 1fr !important; /* One suit per row on phone */
+        gap: 20px;
+    }
+
+    .card-img {
+        height: 400px !important; /* Makes images a better size for scrolling */
+    }
+}
