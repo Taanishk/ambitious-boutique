@@ -1,0 +1,57 @@
+:root {
+    --ambitious-red: #B22234;
+    --apple-white: #f5f5f7;
+    --text-black: #1d1d1f;
+    --transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; background-color: white; color: var(--text-black); overflow-x: hidden; }
+
+/* Navigation */
+.glass-nav {
+    position: fixed; top: 0; width: 100%; height: 60px;
+    background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px);
+    z-index: 1000; display: flex; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.nav-content { width: 90%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 1.5rem; color: var(--ambitious-red); letter-spacing: 2px; }
+.nav-links { display: flex; list-style: none; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--text-black); font-size: 0.85rem; margin-left: 30px; transition: 0.3s; }
+.btn-cta { background: var(--ambitious-red); color: white !important; padding: 8px 20px; border-radius: 20px; font-weight: 600; }
+
+/* Hero Section with Parallax */
+.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.hero-image { position: absolute; width: 100%; height: 120%; top: 0; background-size: cover; background-position: center; z-index: -2; }
+.hero-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: -1; }
+.hero-content { color: white; text-align: center; }
+.hero h1 { font-family: 'Playfair Display'; font-size: 5rem; line-height: 1; margin: 20px 0; }
+.highlight { color: var(--ambitious-red); text-shadow: 2px 2px 10px rgba(0,0,0,0.2); }
+.location-tag { letter-spacing: 4px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; }
+
+/* Showroom Grid */
+.section { padding: 120px 5%; }
+.container { max-width: 1200px; margin: 0 auto; }
+h2 { font-family: 'Playfair Display'; font-size: 3rem; text-align: center; margin-bottom: 60px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.card-img { height: 600px; background-size: cover; background-position: center; border-radius: 4px; margin-bottom: 20px; transition: transform 0.6s; }
+.card:hover .card-img { transform: scale(1.02); }
+.card h3 { font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 10px; }
+
+/* Visit Us Card */
+.visit-card { background: var(--apple-white); padding: 80px 40px; border-radius: 30px; text-align: center; }
+.address { font-size: 1.4rem; margin: 20px 0; font-weight: 300; }
+.landmark { color: var(--ambitious-red); font-weight: 600; margin-bottom: 40px; }
+.btn { display: inline-block; padding: 15px 40px; background: var(--ambitious-red); color: white; text-decoration: none; border-radius: 30px; margin: 10px; font-weight: 600; }
+.btn.secondary { background: white; color: var(--text-black); border: 1px solid #ddd; }
+
+/* Reveal Animation */
+.reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+footer { padding: 60px; text-align: center; background: #fff; border-top: 1px solid #eee; font-size: 0.8rem; color: #888; }
+
+@media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 3rem; }
+}
